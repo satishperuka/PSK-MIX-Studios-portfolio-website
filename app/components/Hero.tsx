@@ -1,37 +1,92 @@
-export default function Hero() {
-  return (
-    <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+"use client";
 
-      <p className="mb-4 text-cyan-400 uppercase tracking-[0.3em]">
-        Film Audio Post Production
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const quotes = [
+    "Engineering Sound For Stories That Last",
+    "Where Every Story Finds Its Sound",
+    "Crafting Emotion Through Sound",
+    "Professional Audio For Film • OTT • Animation",
+    "Precision. Passion. Perfection.",
+  ];
+
+  const [currentQuote, setCurrentQuote] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+      
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-0 top-0 h-[550px] w-[550px] rounded-full bg-white/5 blur-[180px]" />
+        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-zinc-400/5 blur-[180px]" />
+      </div>
+
+      {/* Rotating Quote */}
+      <p className="mb-8 text-sm uppercase tracking-[0.35em] text-zinc-500 transition-all duration-500">
+        {quotes[currentQuote]}
       </p>
 
-      <h1 className="max-w-5xl text-5xl font-bold leading-tight md:text-7xl">
-        Crafting Cinematic Sound For Stories That Matter
+      {/* Main Heading */}
+      <h1 className="text-8xl font-bold md:text-8xl">
+        <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
+          PSK MIX STUDIOS
+        </span>
       </h1>
 
-      <p className="mt-8 max-w-3xl text-lg text-gray-400">
-        With nearly three decades of experience, P. Satish Kumar
-        delivers professional Film Mixing, Mastering, Foley and
-        Sound Design for films, OTT content and commercials.
+      {/* Tagline */}
+      <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
+        Crafting immersive audio experiences for
+        <br />
+        Feature Films • OTT • Animation
       </p>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <span className="rounded-full border border-white/20 px-4 py-2">
-          Film Mixing
+      {/* Service Tags */}
+      <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <span className="rounded-full border border-zinc-700 px-5 py-2">
+          Stereo Mixing
         </span>
 
-        <span className="rounded-full border border-white/20 px-4 py-2">
-          Mastering
+        <span className="rounded-full border border-zinc-700 px-5 py-2">
+          5.1 Mixing
         </span>
 
-        <span className="rounded-full border border-white/20 px-4 py-2">
+        <span className="rounded-full border border-zinc-700 px-5 py-2">
+          Dolby Atmos
+        </span>
+
+        <span className="rounded-full border border-zinc-700 px-5 py-2">
           Foley
         </span>
 
-        <span className="rounded-full border border-white/20 px-4 py-2">
+        <span className="rounded-full border border-zinc-700 px-5 py-2">
           Sound Design
         </span>
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <a
+          href="#contact"
+          className="rounded-lg bg-gradient-to-r from-zinc-200 to-zinc-400 px-8 py-4 font-semibold text-black transition hover:scale-105"
+        >
+          Let's Talk
+        </a>
+
+        <a
+          href="#filmography"
+          className="rounded-lg border border-zinc-700 px-8 py-4 transition hover:border-zinc-400"
+        >
+          View Works
+        </a>
       </div>
     </section>
   );
