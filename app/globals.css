@@ -27,3 +27,163 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* =========================================================
+   CINEMATIC SOUND WAVE
+========================================================= */
+
+.wave{
+  position:absolute;
+  width:220%;
+  left:-60%;
+  top:50%;
+  transform:translateY(-50%);
+
+  fill:none;
+  stroke:#d6d6d6;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+
+  pointer-events:none;
+}
+
+.wave path{
+  fill:none;
+}
+
+/* ---------- Layer 1 ---------- */
+
+.wave-one{
+  opacity:.12;
+  stroke-width:4;
+  filter:blur(2px);
+
+  animation:waveMove1 18s linear infinite;
+}
+
+/* ---------- Layer 2 ---------- */
+
+.wave-two{
+  opacity:.18;
+  stroke-width:2.5;
+
+  animation:waveMove2 13s linear infinite;
+}
+
+/* ---------- Layer 3 ---------- */
+
+.wave-three{
+  opacity:.28;
+  stroke-width:1.8;
+
+  animation:waveMove3 9s linear infinite;
+}
+
+/* ========================= */
+
+@keyframes waveMove1{
+
+  from{
+    transform:translate(-6%, -50%);
+  }
+
+  to{
+    transform:translate(6%, -50%);
+  }
+
+}
+
+@keyframes waveMove2{
+
+  from{
+    transform:translate(8%, -50%);
+  }
+
+  to{
+    transform:translate(-8%, -50%);
+  }
+
+}
+
+@keyframes waveMove3{
+
+  from{
+    transform:translate(-12%, -50%);
+  }
+
+  to{
+    transform:translate(12%, -50%);
+  }
+
+}
+
+/* =====================================================
+   PRO AUDIO WAVEFORM
+===================================================== */
+
+.waveform{
+  position: relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+
+  width:1200px;
+  height:240px;
+}
+
+.wave-bar{
+
+  width:4px;
+  height:40px;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+      to top,
+      rgba(120,120,120,.2),
+      rgba(245,245,245,.95),
+      rgba(120,120,120,.25)
+  );
+
+  box-shadow:
+      0 0 8px rgba(255,255,255,.12),
+      0 0 20px rgba(255,255,255,.06);
+
+  transform-origin:center;
+
+  animation:wavePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes wavePulse{
+
+  0%{
+      height:18px;
+      opacity:.18;
+  }
+
+  20%{
+      height:55px;
+      opacity:.4;
+  }
+
+  40%{
+      height:135px;
+      opacity:.95;
+  }
+
+  60%{
+      height:70px;
+      opacity:.45;
+  }
+
+  80%{
+      height:95px;
+      opacity:.65;
+  }
+
+  100%{
+      height:18px;
+      opacity:.18;
+  }
+
+}

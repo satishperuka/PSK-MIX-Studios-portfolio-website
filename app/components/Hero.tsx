@@ -1,6 +1,7 @@
 "use client";
-
+import SoundField from "./SoundField";
 import { useEffect, useState } from "react";
+import SoundWaveBackground from "./SoundWaveBackground";
 
 export default function Hero() {
   const quotes = [
@@ -35,12 +36,21 @@ export default function Hero() {
         {quotes[currentQuote]}
       </p>
 
-      {/* Main Heading */}
-      <h1 className="text-8xl font-bold md:text-8xl">
-        <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
-          PSK MIX STUDIOS
-        </span>
-      </h1>
+      <SoundField />
+      
+      {/* Hero Title */}
+
+<div className="relative mt-4 flex h-[320px] w-full items-center justify-center">
+
+  <SoundWaveBackground />
+
+  <h1 className="relative z-20 text-8xl font-bold md:text-8xl xl:text-9xl">
+    <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
+      PSK MIX STUDIOS
+    </span>
+  </h1>
+
+</div>
 
       {/* Tagline */}
       <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
